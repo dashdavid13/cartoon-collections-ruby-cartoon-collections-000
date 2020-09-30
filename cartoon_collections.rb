@@ -7,9 +7,14 @@ end
 end
 
 
+
+
+
+
+
 def roll_call_dwarves(dwarves)
   dwarves_line = ''
-      dwarves.each.with_index(0) do |name, number| 
+      dwarves.each.with_index(dwarves.length/2) do |name, number| 
       dwarves_line << " #{number+1}. #{name}"  
     end
     puts dwarves_line 
@@ -18,25 +23,19 @@ def roll_call_dwarves(dwarves)
 
 
 
-def summon_captain_planet(planeteer_calls)
-  planeteer_calls.map! do |element|
-    element.capitalize 
+def summon_captain_planet(planeteer)
+  planeteer.collect do |x|
+    x.capitalize << "!"
 end 
-  planeteer_calls.collect do |x|
-    x + "!"
-  end 
+end 
+
+
+
+def long_planeteer_calls(input_array)
+  input_array.any? do  |word|
+    word.length > 4 
+  end
 end
-
-
-
-
-def long_planeteer_calls(array)
-  array.any? do |word|
-    word.length > 4
-end
-end
-  
-  
   
 def find_the_cheese(cheese)
   cheese_types = ["cheddar", "gouda", "camembert"]
@@ -45,6 +44,16 @@ def find_the_cheese(cheese)
   end
 end
 
+def words_with_b(words)
+  #"bob".starts_with?("b")
+  #["max","ben","sarah","brooklyn"]
+  new_array = []
+  words.each do |x|
+    if x.starts_with("b")
+     new_array << x
+  end 
+  new_array
+end 
 
 
 
